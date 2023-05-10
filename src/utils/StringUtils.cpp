@@ -22,13 +22,12 @@ std::string format(const char *format, ...) {
 
     // Allocate space and write to formatted string
     std::string result(size + 1, '\0');
-    vsnprintf(const_cast<char *>(result.data()), (size_t)(size + 1), format,
-              args);
+    vsnprintf(const_cast<char *>(result.data()), size + 1, format, args);
 
     va_end(args);
-    result.resize(size);  // Adjust the string length
+    result.resize(size); // Adjust the string length
     return result;
 }
 
-}  // namespace StringUtils
-}  // namespace excpp
+} // namespace StringUtils
+} // namespace excpp
