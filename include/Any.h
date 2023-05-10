@@ -1,3 +1,6 @@
+#ifndef __ANY_H__
+#define __ANY_H__
+
 #include <cstdint>
 #include <string>
 #include <vector>
@@ -223,3 +226,4 @@ class Any {
         void *pointerValue;
     };
 };
+#endif // __ANY_H__

@@ -9,8 +9,8 @@ include_directories(
 )
 
 file(GLOB_RECURSE SOURCE
-    ${CMAKE_SOURCE_DIR}/src/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+    ${CMAKE_SOURCE_DIR}/src/**.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/**.cpp
 )
 
 # Now simply link against gtest or gtest_main as needed. Eg
