@@ -9,7 +9,7 @@
 class Any {
   public:
     enum Type {
-        UINT8,
+        UINT8 = 0,
         UINT16,
         UINT32,
         UINT64,
@@ -19,10 +19,10 @@ class Any {
         INT64,
         FLOAT,
         DOUBLE,
-        CHAR,
         STRING,
         BUFFER,
-        POINTER
+        POINTER,
+        CHAR = UINT8,
     };
 
     /**

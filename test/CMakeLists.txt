@@ -14,7 +14,7 @@ file(GLOB_RECURSE SOURCE
 )
 
 add_definitions(-DTEST)
-
+set(CMAKE_CXX_FLAGS   "-g")
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(${PROJECT_NAME} ${SOURCE})
 target_link_libraries(${PROJECT_NAME} gtest_main gtest gmock)
