@@ -36,6 +36,8 @@ std::string Any::asString() const { return *stringValue; }
 
 std::vector<char> Any::asBuffer() const { return *bufferValue; }
 
+void *Any::asPointer() const { return pointerValue; }
+
 Any::Any(uint8_t value) : type(UINT8), uint8Value(value) {}
 
 Any::Any(uint16_t value) : type(UINT16), uint16Value(value) {}
@@ -63,3 +65,5 @@ Any::Any(const std::string &value)
 
 Any::Any(const std::vector<char> &value)
     : type(BUFFER), bufferValue(new std::vector<char>(value)) {}
+
+Any::Any(void *value) : type(POINTER), pointerValue(value) {}

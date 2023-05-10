@@ -21,7 +21,8 @@ class Any {
         DOUBLE,
         CHAR,
         STRING,
-        BUFFER
+        BUFFER,
+        POINTER
     };
 
     /**
@@ -101,6 +102,12 @@ class Any {
      * @param value The value to be stored.
      */
     Any(const std::vector<char> &value);
+
+    /**
+     * @brief Constructor for Any class, takes a void* value.
+     * @param value The value to be stored.
+     */
+    Any(void *value);
 
     /**
      * @brief Destructor for Any class.
@@ -191,6 +198,12 @@ class Any {
      */
     std::vector<char> asBuffer() const;
 
+    /**
+     * @brief Get the stored value as a void *.
+     * @return The stored value as a void *.
+     */
+    void *asPointer() const;
+
   private:
     Type type;
     union {
@@ -207,5 +220,6 @@ class Any {
         char charValue;
         std::string *stringValue;
         std::vector<char> *bufferValue;
+        void *pointerValue;
     };
 };
