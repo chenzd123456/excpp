@@ -1,6 +1,7 @@
 #include "utils/StringUtils.h"
 
-#include <cstdarg>
+#include <stdarg.h>
+#include <stdio.h>
 
 namespace excpp {
 namespace StringUtils {
@@ -10,7 +11,8 @@ std::string format(const char *format, ...) {
     va_start(args, format);
 
     // Calculate required space by calling vsnprintf first
-    int size = vsnprintf(nullptr, 0, format, args);
+    const int size = vsnprintf(NULL, 0, format, args);
+
     if (size <= 0) {
         va_end(args);
         return "";
