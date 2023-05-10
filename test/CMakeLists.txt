@@ -1,4 +1,4 @@
-project(test CXX)
+project(Unittest CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -13,9 +13,10 @@ file(GLOB_RECURSE SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
 )
 
+# Now simply link against gtest or gtest_main as needed. Eg
+include(GoogleTest)
 add_definitions(-DTEST)
 set(CMAKE_CXX_FLAGS   "-g")
-# Now simply link against gtest or gtest_main as needed. Eg
 add_executable(${PROJECT_NAME} ${SOURCE})
 target_link_libraries(${PROJECT_NAME} gtest_main gtest gmock)
-add_test(NAME all_test COMMAND ${PROJECT_NAME})
+add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME})
